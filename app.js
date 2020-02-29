@@ -10,6 +10,8 @@ app.set('view engine', 'pug');
 
 app.use(express.urlencoded({ extended: true }))
 
+db.intialize();
+
 app.get('/users', db.getUsers);
 
 app.post('/users', db.createUser);
