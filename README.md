@@ -23,3 +23,7 @@ run npm install
 Finally run the following:
 
 npm run local
+
+If table users does not exist this will create a table called users in your database and add 10 default users 
+
+If it does exist it will use your existing table
