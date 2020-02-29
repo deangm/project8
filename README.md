@@ -9,13 +9,13 @@ create a .env file in the root of your project
 
 add the following variables to your .env file using your own database credentials 
 
-DB_USER = "db_user"
-DB_PASSWORD = "db_pass"
-DB_HOST="host"
-DB_PORT = port
-DB_DATABASE = "db"
+DB_USER = "Your_db_username"
+DB_PASSWORD = "your_db_pass"
+DB_HOST="localhost"
+DB_PORT = 5432 or your port
+DB_DATABASE = "your_database"
 
-PORT = port 
+PORT = 3000
 NODE_ENV = "dev"
 
 run npm install
