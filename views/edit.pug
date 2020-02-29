@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Document
+    body
+        form(method="post" action="/users/update/"+user.id)
+            label FirstName: 
+            input(name = "first" value =`${user.first_name}` placeholder="firstname")
+            label LastName: 
+            input(name = "last" value =`${user.last_name}` placeholder="lastname")
+            label Email: 
+            input(name = "email" value =`${user.email}` placeholder="Email Address")
+            label Age: 
+            input(type = "number" name = "age" value =`${user.age}` placeholder="Age")
+            input(type="submit")
