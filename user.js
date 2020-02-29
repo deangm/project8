@@ -78,6 +78,49 @@ const updateUser = (req, res) => {
     })
 
 }
+
+const sortUsers = (req, res) => {
+    const field = req.params.field
+    const order = req.params.order
+
+    let query = `SELECT * FROM users ORDER BY ${field} ${order}`
+
+    console.log(req.params)
+    pool.query( query, (error, results) => {
+        if(error) {
+            throw error;
+        }
+        res.render('users', {users: results.rows})
+    })
+}
+
+const searchUser = (req, res) => {
+    const {first, last} = req.body
+    let query = ""
+    let params = []
+    if(first && last){
+        query = `SELECT * FROM users WHERE first_name = ($1) AND last_name = ($2)`
+        params = [first, last]
+    }
+    else if(first){
+        query = `SELECT * FROM users WHERE first_name = ($1)`
+        params = [first]
+    }
+    else if(last){
+        query = `SELECT * FROM users WHERE last_name = ($1)`
+        params = [last]
+    }
+    else{
+        query = `SELECT * FROM users`
+    }
+    
+    pool.query(query, params, (error, results) => {
+        if(error){
+            throw error
+        }
+        res.render('users', {users: results.rows})
+    })
+}
 module.exports = {
     intialize,
     getUsers,
@@ -85,5 +128,7 @@ module.exports = {
     updateUser,
     deleteUser,
     findUser,
+    sortUsers,
+    searchUser
     // getUserByAuthor   
 }

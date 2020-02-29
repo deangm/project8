@@ -26,6 +26,10 @@ app.get('/users/search', (req, res) => {
     res.render('search')
 })
 
+app.get('/users/sort/:field/:order', db.sortUsers)
+
+app.post('/users/search', db.searchUser)
+
 app.listen(PORT, () => {
     console.log(`Server started on ${PORT}`);
 });
