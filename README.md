@@ -1,3 +1,8 @@
+Prerequisites:
+    -postgres service running locally
+    -node installed
+    -npm installed
+
 To run locally 
 
 create a .env file in the root of your project
@@ -12,6 +17,8 @@ DB_DATABASE = "db"
 
 PORT = port 
 NODE_ENV = "dev"
+
+run npm install
 
 Finally run the following:
 
